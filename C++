@@ -1,0 +1,348 @@
+#include <windows.h>     
+#include <cstdlib>
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+#include <time.h>
+using namespace std;
+
+	void gotoxy(int x, int y){
+	 COORD coord;                         
+	 coord.X = x;                          
+	 coord.Y = y;
+	 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+}
+
+void delay(unsigned int mseconds)
+{                              
+clock_t goal=mseconds+clock();
+while(goal>clock());
+}
+
+int main(int argc, char *argv[]){ 
+ int kode_pilihan;              
+ int nama_brg;
+ int baju;
+ int sepatu;
+ int jaket;
+ int kode[20];
+ struct{
+ char nabar [20][20], sz[20];
+ int hrg[20],jmlh[20],size[20]; 
+ }online[10];
+ long int total_byr=0;
+ long int ttl[20];
+ char nm[30],almt[25],nohp[14],kota[25];
+ int ongkir,pilih;
+ int a,n;
+ char mad;
+ int m;
+     int i;
+     
+     for(m=1;m<30;m++)
+ {
+  delay(120);   
+  gotoxy(m-1,5);cout<<' ';
+  gotoxy(m,7);cout<<" SELAMAT DATANG  ";    
+ }
+ 
+ mad='Y';
+ while (mad == 'y' || mad =='y'){
+ 	system ("cls");
+ 	cout<<"Aldy Febriyandani\n";
+ 	cout<<"173112706450038\n";
+ 	
+ 	
+gotoxy(15,6);cout<<"TOKO ONLINE STORE \n";
+gotoxy(15,7);cout<<"Teknik Kompilasi \n";
+ 	
+gotoxy(5,16);cout<<"\t Apa yang ada ingin beli ? \n";	
+gotoxy(6,17);cout<<"1. Baju \n";
+gotoxy(6,18);cout<<"2. Sepatu \n";
+gotoxy(6,19);cout<<"3. Jaket \n";
+
+cout<<"\n\nSilahkan Pilih Menu [1,2,3]: "; cin>>kode_pilihan;
+
+switch (kode_pilihan){
+	case 1:
+		system ("cls");
+		baju;
+		gotoxy(15,6);cout<<	"|                 DAFTAR HARGA BARU              |"<<endl;
+		gotoxy(15,7);cout<<	"|KD |	Model 		|    Size 		| Stock Ready | Harga 		| "<<endl;
+		gotoxy(15,8);cout<<	"|01 |   Tunik	    |   M,L,XL      |      15     |  Rp.150000 	| "<<endl; 
+		gotoxy(15,9);cout<<	"|02 |   Blous	    |   M,L,XL      |      13     |  Rp.95000 	| "<<endl;
+		gotoxy(15,10);cout<<"|03 |   Sar'i	    |   M,L,XL      |      11     |  Rp.250000 	| "<<endl;
+		gotoxy(15,11);cout<<"|04 |   Jamsuit    |   M,L,XL      |      15     |  Rp.150000 	| "<<endl;
+		
+		
+		gotoxy(15,15);cout<<"Minimal Pembelian Harus 2  ITEM YA  "<<endl;
+		cout<<"Masukkan Berapa banyak anda ingin membeli baju :";cin>>n;
+		for(a=1;a<=n;a++){
+			cout<<"Barang ke - "<<a<<endl;
+			cout<<"Kode : ";cin>>kode[a];
+			cout<<"Model :";cin>>online[a].nabar[a];
+			{
+				if(kode[a]==01)
+				online[a].hrg[a]=150000;
+				
+				if(kode[a]==02)
+				online[a].hrg[a]=95000;
+				
+				if(kode[a]==03)
+				online[a].hrg[a]=250000;
+					
+				if(kode[a]==04)
+				online[a].hrg[a]=150000;
+				
+				else 
+				online[a].hrg[a]=0;
+			}
+			cout<<"Harga		:Rp."<<online[a].hrg[a]<<endl;
+			cout<<"Size			: ";cin>>online[a].sz[a];
+			cout<<"Jumlah Beli	: ";cin>>online[a].jmlh[a];
+		}
+		
+	system("cls");
+	cout<<"Daftar 	Belanja Anda ";
+	gotoxy(5,6);cout<<	"|No |	Model 		|    Size 		| Harga 	| Jumlah Beli 	| "<<endl;
+	for(a=a;a<=n;a++)
+	{
+		gotoxy(5,8+a) ;cout<<a;
+		gotoxy(6,8+a) ;cout<<online[a].nabar[a];
+		gotoxy(7,8+a) ;cout<<online[a].size[a];
+		gotoxy(8,8+a) ;cout<<online[a].hrg[a];
+		gotoxy(9,8+a) ;cout<<online[a].jmlh[a];
+		ttl[a]=online[a].jmlh[a]*online[a].hrg[a];
+		total_byr=total_byr+ttl[a];
+	
+	}
+		gotoxy(4,14);cout<<"Nama				: ";cin>>nm;
+		gotoxy(4,15);cout<<"Alamat				: ";cin>>almt;
+		gotoxy(4,16);cout<<"No Hp				: ";cin>>nohp;
+		gotoxy(4,17);cout<<"Alamat Tujuan		: ";cin>>kota;
+		ongkir=30000;
+		gotoxy(4,20);cout<<"Ongkos Kirim :Rp."<<ongkir<<endl;
+		gotoxy(4,22);cout<<"Total Harga Keseluruhan  : Rp."<<total_byr<<endl;
+		
+		cout<<"Layanan Tranfer "<<endl;
+		cout<<"BRI"<<endl;
+		cout<<"BNI"<<endl;
+		cout<<"Mandiri"<<endl;
+		
+		cout<<"Tranfer Melalui ?"<<endl;
+		if(pilih==01){
+		cout<<"No.Rekening : 173112706450038"<<endl;
+		}
+		else if(pilih==02){
+		cout<<"No.Rekening : 183112706450038"<<endl;
+		}
+		else if(pilih==03){
+		cout<<"No.Rekening : 173112706450038"<<endl;
+		}
+		else {
+			cout<<"Data Salah ! ";
+		}	
+		
+	
+	cout<<"\t\t Pengiran Setelah Anda Tranfer \n";
+	cout<<" ** Barang Yang Sudah Di Beli ** \n";	
+	cout<<" ** Tidak Dapat Di Kembalikan Jika Sudah Di beli \n";
+	 cout<<"\t\t\n";
+ 
+            break;
+            
+            case 2:
+    system("cls");
+		gotoxy(15,6) ; cout<<"Daftar harga Sepatu "<<endl;
+		gotoxy(15,7);cout<<	"|KD |	 Model 		|    Size 			       | Stock Ready | Harga 		| "<<endl;
+		gotoxy(15,8);cout<<	"|01 |   Nike	    |   35,36,37,38,39,40      |      15     |  Rp.150000 	| "<<endl; 
+		gotoxy(15,9);cout<<	"|02 |   Vans	    |   35,36,37,38,39,40      |      13     |  Rp.95000 	| "<<endl;
+		gotoxy(15,10);cout<<"|03 |   Adidas	    |   35,36,37,38,39,40      |      11     |  Rp.250000 	| "<<endl;
+		gotoxy(15,11);cout<<"|04 |   Wakai      |   35,36,37,38,39,40      |      15     |  Rp.150000 	| "<<endl;
+		
+		gotoxy(15,15);cout<<"Minimal Pembelian Harus 2  ITEM YA  "<<endl;
+		cout<<"Masukkan Berapa banyak anda ingin membeli baju :";cin>>n;
+		for(a=1;a<=n;a++){
+			cout<<"Kode Barang ke - "<<a<<endl;
+			cout<<"Kode			:";	cin>>kode[a];
+			cout<<"Model		:"; cin>>online[a].nabar[a];
+			{
+				if(kode[a]==01)
+				online[a].hrg[a]=1500000;
+				
+				else if(kode[a]==02)
+				online[a].hrg[a]=95000;
+				
+				else if(kode[a]==03)
+				online[a].hrg[a]=250000;
+				
+				else if(kode[a]==04)
+				online[a].hrg[a]=1500000;
+				else
+				online[a].hrg[a]=0;
+			}
+			
+			system("cls");
+			cout<<"Daftar 	Belanja Anda ";
+			gotoxy(5,6);cout<<	"|No |	Model 		|    Size 		| Harga 	| Jumlah Beli 	| "<<endl;
+			for(a=a;a<=n;a++)
+			{
+			gotoxy(5,8+a) ;cout<<a;
+			gotoxy(6,8+a) ;cout<<online[a].nabar[a];
+			gotoxy(7,8+a) ;cout<<online[a].size[a];
+			gotoxy(8,8+a) ;cout<<online[a].hrg[a];
+			gotoxy(9,8+a) ;cout<<online[a].jmlh[a];
+			ttl[a]=online[a].jmlh[a];
+			total_byr=total_byr+ttl[a];
+			
+			}
+			
+			gotoxy(4,14);cout<<"Nama			:";cin>>nm;
+			gotoxy(4,15);cout<<"Alamat			:";cin>>almt;
+			gotoxy(4,16);cout<<"No Hp			:";cin>>nohp;
+			gotoxy(4,17);cout<<"Alamat Tujuan	:";cin>>kota;
+			
+			ongkir=35000;
+			
+			gotoxy(4,20);cout<<"Ongkos Kirim	:Rp."<<ongkir<<endl;
+			gotoxy(4,22);cout<<"Total Harga Keseluruhan :Rp."<<total_byr<<endl;
+			
+			cout<<"Layanan Traner "<<endl;
+			cout<<"BRI"<<endl;
+			cout<<"BNI"<<endl;
+			cout<<"Mandiri"<<endl;
+			
+			cout<<"Tranfer Melalui  ?"<<endl;
+			if(pilih==01){
+				cout<<"No Rekening 173112706450038"<<endl;
+			}
+			else if(pilih==02){
+				cout<<"No Rekening 183112706450038"<<endl;
+			}
+			else if(pilih==03){
+				cout<<"No Rekening 173112706450038"<<endl;
+			}
+			else{
+				cout<<"Data Salah";
+			}
+		
+		cout<<"\t\\t Pengiriman Setelah Tranfer \n";
+		cout<<"\t\t Barang Yang Sudah Di Beli \n";
+		cout<<" ** Tidak Dapat Di Kembalikan Jika Sudah Di beli \n";
+		
+		break;
+	   	case 3:
+		system("cls");
+		jaket;
+		gotoxy(15,5) ;cout<<"Daftar Harga Jacket "<<endl;
+		gotoxy(15,6) ;cout<<"No	|	Model	|	Size	|	Stock Ready	|	Harga		|"<<endl;
+		gotoxy(15,7) ;cout<<"01	|	Sweeter	| 	M,L,XL	|		8		|	Rp.170000	|"<<endl;
+		gotoxy(15,7) ;cout<<"02	|	Hoodie	| 	M,L,XL	|		10		|	Rp.180000	|"<<endl;
+		gotoxy(15,7) ;cout<<"03	|	Boomber	| 	M,L,XL	|		12		|	Rp.2000000	|"<<endl;
+		gotoxy(15,9) ;cout<<"						Minimal Pembelian 2 Item			 "<<endl;
+		
+		
+	cout<<"Masukkan Berapa banyak anda ingin membeli Jaket :";cin>>n;
+		for(a=1;a<=n;a++){
+		
+	 cout<<"Barang ke - "<<a<<endl;
+   cout<<"Kode       : ";cin>>kode[a];
+   cout<<"Model      : ";cin>>online[a].nabar[a];{
+   if(kode[a]==01){
+   online[a].hrg[a]=170000
+}
+   else if(kode[a]==02){  
+   online[a].hrg[a]=170000
+}
+   else if(kode[a]==02)
+  online[a].hrg[a]=170000
+  
+   else
+   online[a].hrg[]a=0
+   
+	}
+	cout<<"Harga 			:Rp."<<online[a].hrg[a}<<endl;
+	cout<<"Size				: ";cin>>online[a].sz<<endl;
+	cout<<"Jumlah Beli		: ";cin>>online[a].jmlh[a];
+		
+		}
+		
+	system("cls");
+	cout<<"Daftar 	Belanja Anda ";
+			gotoxy(5,6);cout<<	"|No |	Model 		|    Size 		| Harga 	| Jumlah Beli 	| "<<endl;
+			for(a=1;a<=n;a++)
+			{
+			gotoxy(5,8+a) ;cout<<a;
+			gotoxy(6,8+a) ;cout<<online[a].nabar[a];
+			gotoxy(7,8+a) ;cout<<online[a].sz[a];
+			gotoxy(8,8+a) ;cout<<online[a].hrg[a];
+			gotoxy(9,8+a) ;cout<<online[a].jmlh[a];
+			ttl[a]=online[a].jmlh[a];
+			total_byr=total_byr+ttl[a]]
+		}
+		
+		gotoxy(4,14);cout<<"Nama			:";cin>>nm;
+		gotoxy(4,15);cout<<"Alamat			:";cin>>almt;
+		gotoxy(4,16);cout<<"No Hp			:";cin>>nohp;
+		gotoxy(4,17);cout<<"Alamat Turujuan :";cin>>kota;
+		
+		ongkir:25000;
+		gotoxy(4,20);cout<<"Ongkos Kirim"<<endl;
+		gotoxy(4,22);cout<<"Total Harga Keseluruhan :Rp."<<total_byr<<endl;
+		
+		cout
+		
+			cout<<"Layanan Traner "<<endl;
+			cout<<"BRI"<<endl;
+			cout<<"BNI"<<endl;
+			cout<<"Mandiri"<<endl;
+			
+			cout<<"Tranfer Melalui  ?"<<endl;
+			if(pilih==01){
+				cout<<"No Rekening 173112706450038"<<endl;
+			}
+			else if(pilih==02){
+				cout<<"No Rekening 183112706450038"<<endl;
+			}
+			else if(pilih==03){
+				cout<<"No Rekening 173112706450038"<<endl;
+			}
+			else{
+				cout<<"Data Salah";
+			}
+		
+		cout<<"\t\\t Pengiriman Setelah Tranfer \n";
+		cout<<"\t\t Barang Yang Sudah Di Beli \n";
+		cout<<" ** Tidak Dapat Di Kembalikan Jika Sudah Di beli \n";
+		
+		break;
+	}
+	cout<<"\n\n Apa Anda Ingin Mengulaginya (y/t): ";cin>>mad;}
+	
+	for(i=5<31;i++)
+	{
+		delay(90)
+		gotoxy
+		(i-1,34);cout<<' ';
+		gotoxy(i,34);cout<<"TERIMA KASIH ATAS KUNJUNGAN ANDA";
+		
+	}
+		
+		
+		
+
+}
+}
+}
+
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 
+ 
